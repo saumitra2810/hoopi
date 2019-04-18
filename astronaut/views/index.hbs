@@ -1,0 +1,20 @@
+
+
+<amp-carousel id="carousel-with-preview"
+    width="450"
+    height="300"
+    layout="responsive"
+    type="slides">
+    {{#each content}}
+      <div class="product-details">
+        <div class="image-container">
+          <amp-img src="{{this.iu}}"
+            width="1.5" height="1" layout="responsive"
+            alt="{{dt}}"></amp-img>
+            <h3>{{this.dt}}</h3>
+            <p>Rs.{{this.pr}}<p>
+            <a target="_blank" href="{{this.du}}">View Product</a>
+        </div>
+      </div>
+    {{/each}}
+</amp-carousel>
