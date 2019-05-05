@@ -1,9 +1,23 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
+
+.container {
+  padding: 0; }
+  .container .header {
+    padding: 20px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #f2f2f2; }
+    .container .header h5 {
+      margin-bottom: 0; }
+  .container .sidebar {
+    padding: 20px;
+    border-right: 1px solid #ededed; }
+  .container .products {
+    padding: 20px; }
 
 .product-details {
   text-align: center; }
@@ -14,5 +28,55 @@ a {
 
 #swym-anchor {
   display: none; }
+
+.widget-container {
+  position: relative; }
+
+#modal-container {
+  display: none;
+  width: 100%;
+  border: 1px solid #eee;
+  position: absolute;
+  top: 50px;
+  z-index: 2; }
+  #modal-container .cross {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 18px; }
+  #modal-container .row {
+    background: #fff;
+    padding: 0;
+    margin: 0; }
+  #modal-container .column {
+    padding: 0;
+    margin: 0; }
+
+.menu {
+  text-align: center;
+  border-bottom: 1px solid #eee; }
+  .menu p {
+    margin-bottom: 0; }
+
+.menu-item, #items-container {
+  padding: 10px; }
+
+.product .title {
+  margin-bottom: 1px; }
+
+.product .qty {
+  color: #95a7b7; }
+
+#dish-name {
+  font-weight: bold; }
+
+.call-to-action {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  padding: 10px;
+  border-top: 1px solid #eee; }
 
 /*# sourceMappingURL=style.css.map */

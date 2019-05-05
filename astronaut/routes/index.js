@@ -3,7 +3,7 @@ var fs = require('fs');
 var router = express.Router();
 var request = require('request');
 
-var articlesToProducts = fs.readFileSync('../public/articlesToProducts.json', 'utf8');
+var articlesToProducts = JSON.parse(fs.readFileSync('public/articlesToProducts.json', 'utf8'));
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -20,18 +20,11 @@ var articlesToProducts = fs.readFileSync('../public/articlesToProducts.json', 'u
 //   });
 // });
 
-router.get('/', function(req, res, next) {
-  var pid = req.query.pid;
-  var articleHandle = req.query.articleHandle;
-  if(!articlesToProducts.hasOwnProperty(articleHandle)){
-    res.status(404).send('Not found');
-  } else {
-    var articleProducts = articlesToProducts[articleHandle];
-    request('http://localhost:3000/stylesheets/style.css', function (error, response, cssContent) {
-      res.render('index', {pid: pid, articleProducts: articleProducts, csscontent: cssContent});
-    });
-  }
-});
+// router.get('/', function(req, res, next) {
+//   request('http://localhost:3000/stylesheets/style.css', function (error, response, cssContent) {
+//     res.render('index', {csscontent: cssContent});
+//   });
+// });
 
 // url = request.query_params.get('url', '')
 //         max_width = request.query_params.get('maxwidth', 0)
@@ -39,14 +32,22 @@ router.get('/', function(req, res, next) {
 //         resp_format = request.query_params.get('format', '')
 //         referrer = request.query_params.get('referrer', '')
 
-router.get('/modal', function(req, res, next) {
-  request('http://localhost:3000/stylesheets/style.css', function (error, response, cssContent) {
-    res.render('modal', {pid: pid, csscontent: cssContent});
-  });
+router.get('/', function(req, res, next) {
+  var pid = req.query.pid;
+  var articleHandle = req.query.articleHandle;
+  if(!articlesToProducts.hasOwnProperty(articleHandle)){
+    res.status(404).send('Not found');
+  } else {
+    var articleInfo = articlesToProducts[articleHandle];
+    request('http://localhost:3000/stylesheets/style.css', function (error, response, cssContent) {
+      res.render('index', {pid: pid, articleInfo: JSON.stringify(articleInfo), csscontent: cssContent});
+    });
+  }
 });
 
 router.get('/siteinject', function(req, res, next) {
-  res.render('siteinject', {});
+  var pid = req.query.pid;
+  res.render('siteinject', {pid: pid});
 });
 
 module.exports = router;

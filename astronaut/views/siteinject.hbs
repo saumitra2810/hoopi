@@ -1,2 +1,35 @@
-
+<script>
+  var swappName = ("Wishlist" || "Wishlist");
+  var swymJSObject = {
+    pid: "{{{pid}}}"
+  };
+  window.swymCart = {};
+  window.swymJSShopifyLoad = function(){
+    if(window.swymPageLoad) swymPageLoad();
+    if(!window._swat) {
+      (function (s, w, r, e, l, a, y) {
+        r['SwymRetailerConfig'] = s;
+        r[s] = r[s] || function (k, v) {
+          r[s][k] = v;
+        };
+      })('_swrc', '', window);
+      _swrc('RetailerId', swymJSObject.pid);
+      _swrc('Callback', function(){
+        //initSwymShopify();
+      });
+    }else if(window._swat.postLoader){
+      _swrc = window._swat.postLoader;
+      _swrc('RetailerId', swymJSObject.pid);
+      _swrc('Callback', function(){
+        //initSwymShopify();
+      });
+    }else{
+      //initSwymShopify();
+    }
+  }
+  if(!window._SwymPreventAutoLoad) {
+    swymJSShopifyLoad();
+  }
+</script>
+<script type="text/javascript" src="//swymdev.azureedge.net/code/swym.js"></script>
 <script src="/javascripts/siteinject.js"></script>

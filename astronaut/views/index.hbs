@@ -23,6 +23,7 @@
   var swymJSObject = {
     pid: "{{{pid}}}"
   };
+  var articleInfo = JSON.parse('{{{articleInfo}}}');
   window.swymCart = {};
   window.swymJSShopifyLoad = function(){
     if(window.swymPageLoad) swymPageLoad();
@@ -53,4 +54,55 @@
 </script>
 <script type="text/javascript" src="//swymdev.azureedge.net/code/swym.js"></script>
 <script src="/javascripts/roaming.js"></script>
-<button>Create a shopping list</button>
+
+<div class="widget-container">
+  <button style="margin:0" id="create-shopping-list">Create a shopping list</button>
+  <div id="modal-container" class="container">
+    <div class="row">
+      <div class="column">
+        <div class="header">
+          <h5>Shopping List</h5>
+          <div class="cross" onClick="closeModal(e)">x</div>
+        </div>
+      </div>
+    </div>
+    <div class="row menu">
+      <div class="column">
+        <div class="menu-item">
+          <a href="#" class="my-lists"><p><strong>My Lists</strong></p></a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="menu-item">
+          <a href="#" class="all-products"><p><strong>All Items</strong></p></a>
+        </div>
+      </div>
+    </div>
+    <div class="body-container">
+      <div class="row">
+        <div class="column">
+          <div id="items-container">
+
+          </div>
+        </div>
+      </div>
+      <div class="call-to-action">
+        <button id="add-to-list">Add to list</button>
+        <!-- <button id="shop-on-site">Shop on site</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  window.localStorage.setItem("open-modal", false);
+  var createShoppingListBtn = document.getElementById("create-shopping-list");
+  createShoppingListBtn.addEventListener("click", function(e){
+    //window.localStorage.setItem("open-modal", true);
+    document.getElementById("modal-container").style.display = "block";
+  });
+
+</script>

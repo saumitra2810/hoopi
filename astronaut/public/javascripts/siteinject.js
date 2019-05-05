@@ -3,29 +3,7 @@
 function initListener(){
   console.log("initialised");
   var iframeHost = window.location.hostname;
-  var homeDomain = "https://sams-furniture-store.myshopify.com";
-
-  /* start cookie utils */
-
-  var createCookie_ = function (name, value, domain) {
-      var date = new Date();
-      date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
-      var expires = '; expires=' + date.toGMTString();
-      document.cookie = name + '=' + value + expires + '; path=/' + (domain ? (';domain=.' + domain) : '');
-  };
-
-  var readCookie_ = function (name) {
-      var nameEQ = name + '=';
-      var ca = document.cookie.split(';');
-      for(var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0)==' ') c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-      }
-      return null;
-  };
-
-  /* end cookie utils */
+  var homeDomain = "https://sams-grocery-store.myshopify.com";
 
   window.addEventListener("message", receiveMessage, false);
 
@@ -35,17 +13,21 @@ function initListener(){
 
     var data = event.data;
     console.log(event);
-    if(data.type == "set-user"){
-      var regid = data["swym-regid"];
-      var sessionid = data["swym-sessionid"];
-
-      var regidInCookie = readCookie_("swym-regid");
-      var sessionidInCookie = readCookie_("swym-sessionid");
-
-      if(!regidInCookie || !sessionidInCookie) {
-        createCookie_("swym-regid", regid, iframeHost);
-        createCookie_("swym-sessionid", sessionid, iframeHost);
-      }
+    if(data.type == "update-context"){
+      var diff = [];
+      var sentProducts = data.homeProducts;
+      /* update home */
+      _swat.fetch(function(products){
+        products.forEach(function(p){
+          var foundProduct = sentProducts.filter(function(sentP){
+            return sentP.epi == p.epi && sentP.et == p.et;
+          });
+          if(foundProduct.length == 0){
+            diff.push(p);
+          }
+        });
+        event.source.postMessage({type: "update-context", products: diff}, event.origin);
+      });
     }
   }
 }
