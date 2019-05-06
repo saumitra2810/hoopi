@@ -3,7 +3,6 @@
 function initListener(){
   console.log("initialised");
   var iframeHost = window.location.hostname;
-  var homeDomain = "https://sams-grocery-store.myshopify.com";
 
   window.addEventListener("message", receiveMessage, false);
 

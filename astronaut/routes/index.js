@@ -4,6 +4,7 @@ var router = express.Router();
 var request = require('request');
 
 var articlesToProducts = JSON.parse(fs.readFileSync('public/articlesToProducts.json', 'utf8'));
+var provisionedPids = JSON.parse(fs.readFileSync('public/provisionedPids.json', 'utf8'));
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -35,7 +36,7 @@ var articlesToProducts = JSON.parse(fs.readFileSync('public/articlesToProducts.j
 router.get('/', function(req, res, next) {
   var pid = req.query.pid;
   var articleHandle = req.query.articleHandle;
-  if(!articlesToProducts.hasOwnProperty(articleHandle)){
+  if(!articlesToProducts.hasOwnProperty(articleHandle) || !provisionedPids.hasOwnProperty(pid)){
     res.status(404).send('Not found');
   } else {
     var articleInfo = articlesToProducts[articleHandle];
@@ -47,7 +48,12 @@ router.get('/', function(req, res, next) {
 
 router.get('/siteinject', function(req, res, next) {
   var pid = req.query.pid;
-  res.render('siteinject', {pid: pid});
+  if(!provisionedPids.hasOwnProperty(pid)){
+    res.status(404).send('Not found');
+  } else {
+    var domain = provisionedPids[pid].domain;
+    res.render('siteinject', {pid: pid, domain: domain});
+  }
 });
 
 module.exports = router;
