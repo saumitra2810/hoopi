@@ -1,5 +1,5 @@
 
-var productsInList;
+var productsInList, itemsContainer;
 var productsMarkup = `
   <div class="row">
     <div class="column">
@@ -18,6 +18,22 @@ var productsMarkup = `
     </div>
   </div>
 `;
+
+var collectionsMarkup = `
+<div class="row">
+  <div class="column">
+    {{#collections}}
+      <div class="product clearfix">
+        <div class="float-left">
+          <p class="title">{{.}}</p>
+        </div>
+      </div>
+    {{/collections}}
+  </div>
+</div>
+
+`;
+
 function onRemove(e){
   var epi = e.target.getAttribute("data-variant-id");
   for (var i = 0; i < productsInList.length; i++) {
@@ -30,15 +46,19 @@ function onRemove(e){
 }
 function swymCallbackFn(){
   productsInList = articleInfo.products;
-  var itemsContainer = document.getElementById("items-container");
+  itemsContainer = document.getElementById("items-container");
   var addToListBtn = document.getElementById("add-to-list");
-  if(articleInfo){
-    if(articleInfo.dishName && articleInfo.products){
-      var productInList = articleInfo.products;
-      var markup = SwymUtils.renderTemplateString(productsMarkup, {dishName: articleInfo.dishName, products: articleInfo.products});
-      itemsContainer.innerHTML = markup;
+  var shopBtn = document.getElementById("shop-on-site");
+
+  window._swat.fetchWishlistWRTHashtag(function(products){
+    if(products.length > 0){
+      addToListBtn.innerHTML = "Added to list";
+      addToListBtn.style["pointer-events"] = "none";
     }
-  }
+  }, articleInfo.dishName);
+
+  renderDishProducts();
+
   addToListBtn.addEventListener("click", function(e){
     var btn = e.target;
     btn.innerHTML = "Adding to list..";
@@ -53,6 +73,10 @@ function swymCallbackFn(){
     btn.style["pointer-events"] = "none";
     btn.style.opacity = 0.7;
   });
+
+  shopBtn.addEventListener("click", function(e){
+    window.open(homeDomain, '_blank');
+  });
 }
 if(!window.SwymCallbacks){
  window.SwymCallbacks = [];
@@ -61,6 +85,29 @@ window.SwymCallbacks.push(swymCallbackFn);
 
 function closeModal(e){
   document.getElementById("modal-container").style.display = "none";
+}
+
+function renderDishProducts(event){
+  if(event) event.preventDefault();
+  if(articleInfo){
+    if(articleInfo.dishName && articleInfo.products){
+      var productInList = articleInfo.products;
+      var markup = SwymUtils.renderTemplateString(productsMarkup, {dishName: articleInfo.dishName, products: articleInfo.products});
+      itemsContainer.innerHTML = markup;
+    }
+  }
+}
+
+function renderUserLists(event){
+  if(event) event.preventDefault();
+  _swat.getAllCollections(function(collectionMap){
+    var collectionNames = [];
+    for(var collectionName in collectionMap){
+      collectionNames.push(collectionName);
+    }
+    var markup = SwymUtils.renderTemplateString(collectionsMarkup, {collections: collectionNames});
+    itemsContainer.innerHTML = markup;
+  });
 }
 
 // window.addEventListener('storage', function(event){

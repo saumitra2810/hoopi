@@ -23,6 +23,7 @@
   var swymJSObject = {
     pid: "{{{pid}}}"
   };
+  var homeDomain = "{{{domain}}}";
   var articleInfo = JSON.parse('{{{articleInfo}}}');
   window.swymCart = {};
   window.swymJSShopifyLoad = function(){
@@ -56,30 +57,30 @@
 <script src="/javascripts/roaming.js"></script>
 
 <div class="widget-container">
-  <button style="margin:0" id="create-shopping-list">Create a shopping list</button>
+  <button class="button button-outline" style="margin:0" id="create-shopping-list">Create a shopping list</button>
   <div id="modal-container" class="container">
     <div class="row">
       <div class="column">
         <div class="header">
           <h5>Shopping List</h5>
-          <div class="cross" onClick="closeModal(e)">x</div>
+          <a href="#" class="cross" onClick="closeModal(event)">x</a>
         </div>
       </div>
     </div>
     <div class="row menu">
       <div class="column">
         <div class="menu-item">
-          <a href="#" class="my-lists"><p><strong>My Lists</strong></p></a>
+          <a href="#" onClick="renderUserLists(event)" class="my-lists"><p><strong>My Lists</strong></p></a>
         </div>
       </div>
       <div class="column">
         <div class="menu-item">
-          <a href="#" class="all-products"><p><strong>All Items</strong></p></a>
+          <a href="#" onClick="renderDishProducts(event)" class="all-products"><p><strong>All Items</strong></p></a>
         </div>
       </div>
     </div>
     <div class="body-container">
-      <div class="row">
+      <div class="row products-row">
         <div class="column">
           <div id="items-container">
 
@@ -87,8 +88,16 @@
         </div>
       </div>
       <div class="call-to-action">
-        <button id="add-to-list">Add to list</button>
-        <!-- <button id="shop-on-site">Shop on site</button> -->
+        <div class="clearfix">
+          <div class="float-left">
+            <button id="add-to-list">Add to list</button>
+          </div>
+
+          <div class="float-right">
+            <button id="shop-on-site">Shop on site</button>
+          </div>
+          <!-- <button id="shop-on-site">Shop on site</button> -->
+        </div>
       </div>
     </div>
   </div>

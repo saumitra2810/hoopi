@@ -47,7 +47,8 @@ a {
   #modal-container .row {
     background: #fff;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    width: 100%; }
   #modal-container .column {
     padding: 0;
     margin: 0; }
@@ -78,5 +79,26 @@ a {
   background: #fff;
   padding: 10px;
   border-top: 1px solid #eee; }
+
+.body-container {
+  height: 60vh; }
+  .body-container .products-row {
+    height: 80%;
+    overflow-y: auto; }
+
+button {
+  color: #fff !important;
+  border: 0.1rem solid #fff !important;
+  background-color: #4d4d4d !important;
+  margin-bottom: 0 !important; }
+  button.button-primary {
+    background-color: #4d4d4d !important; }
+  button.button-outline {
+    color: #4d4d4d !important;
+    border: 0.1rem solid #4d4d4d !important;
+    background-color: transparent !important; }
+
+a {
+  color: #333 !important; }
 
 /*# sourceMappingURL=style.css.map */

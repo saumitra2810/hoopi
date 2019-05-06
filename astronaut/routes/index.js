@@ -39,9 +39,9 @@ router.get('/', function(req, res, next) {
   if(!articlesToProducts.hasOwnProperty(articleHandle) || !provisionedPids.hasOwnProperty(pid)){
     res.status(404).send('Not found');
   } else {
-    var articleInfo = articlesToProducts[articleHandle];
+    var articleInfo = articlesToProducts[articleHandle], domain = provisionedPids[pid].domain;
     request('http://localhost:3000/stylesheets/style.css', function (error, response, cssContent) {
-      res.render('index', {pid: pid, articleInfo: JSON.stringify(articleInfo), csscontent: cssContent});
+      res.render('index', {pid: pid, domain: domain, articleInfo: JSON.stringify(articleInfo), csscontent: cssContent});
     });
   }
 });
