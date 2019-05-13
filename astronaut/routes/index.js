@@ -83,7 +83,7 @@ router.get('/', function(req, res, next) {
   var maxWidth = req.query.maxwidth;
   var maxHeight = req.query.maxheight;
 
-  if(format != "json" || !maxWidth || !maxHeight || maxWidth < 300 || maxHeight < 400){
+  if((format && format != "json") || (maxWidth && maxWidth < 300) || (maxHeight && maxHeight  < 400) ){
     res.status(501).send({});
   } else{
     var pid = getPidFromUrl(url);
@@ -94,10 +94,10 @@ router.get('/', function(req, res, next) {
       if(!articlesToProducts.hasOwnProperty(articleHandle) || !provisionedPids.hasOwnProperty(pid)){
         res.status(404).send({});
       } else {
-        if(maxWidth > 700) {
+        if(!maxWidth || maxWidth > 700) {
           maxWidth = 700;
         }
-        if(maxHeight > 500) {
+        if(!maxHeight || maxHeight > 500) {
           maxHeight = 500;
         }
         var response = buildOembedResponse(url, maxWidth, maxHeight);
