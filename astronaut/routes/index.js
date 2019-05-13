@@ -115,9 +115,9 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get('/shopping-lists', function(req, res, next) {
-  var pid = req.query.pid;
-  var articleHandle = req.query.articleHandle;
+router.get('/providers/:pid/articles/:articleHandle', function(req, res, next) {
+  var pid = req.params.pid;
+  var articleHandle = req.params.articleHandle;
   if(!articlesToProducts.hasOwnProperty(articleHandle) || !provisionedPids.hasOwnProperty(pid)){
     res.status(404).send({});
   } else {

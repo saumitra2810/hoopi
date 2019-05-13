@@ -55,7 +55,7 @@ function swymCallbackFn(){
 
   window._swat.fetchWishlistWRTHashtag(function(products){
     if(products.length > 0){
-      addToListBtn.innerHTML = "Added to list";
+      addToListBtn.innerHTML = "Added to your list";
       addToListBtn.style["pointer-events"] = "none";
     }
   }, articleInfo.dishName);
