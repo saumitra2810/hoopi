@@ -2,6 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var router = express.Router();
 var request = require('request');
+var UrlPattern = require('url-pattern');
 
 var articlesToProducts = JSON.parse(fs.readFileSync('public/articlesToProducts.json', 'utf8'));
 var provisionedPids = JSON.parse(fs.readFileSync('public/provisionedPids.json', 'utf8'));
@@ -35,19 +36,15 @@ var provisionedPids = JSON.parse(fs.readFileSync('public/provisionedPids.json', 
 
 
 function parseUrl(url){
-  if(url.indexOf("?") != -1){
-    var query = url.split("?")[1];
-    var params = new URLSearchParams(query);
-    return params;
-  } else {
-    return -1;
-  }
+  var pattern = new UrlPattern('*/providers/:pid/articles/:articleHandle');
+  return pattern.match(url);
 }
 
 function getPidFromUrl(url){
   var params = parseUrl(url);
-  if(params != -1){
-    return params.get("pid");
+  console.log(params);
+  if(params){
+    return decodeURIComponent(params.pid);
   } else {
     return -1;
   }
@@ -55,8 +52,8 @@ function getPidFromUrl(url){
 
 function getArticleHandleFromUrl(url){
   var params = parseUrl(url);
-  if(params != -1){
-    return params.get("articleHandle");
+  if(params){
+    return decodeURIComponent(params.articleHandle);
   } else {
     return -1;
   }
