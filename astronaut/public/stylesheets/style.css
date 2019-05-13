@@ -101,4 +101,15 @@ button {
 a {
   color: #333 !important; }
 
+.active a {
+  color: #00B7FF !important; }
+
+@media only screen and (max-width: 321px) {
+  .call-to-action .float-right {
+    float: left;
+    margin-top: 10px;
+    width: 100%; }
+  .call-to-action .float-left {
+    width: 100%; } }
+
 /*# sourceMappingURL=style.css.map */

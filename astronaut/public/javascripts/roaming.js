@@ -34,6 +34,9 @@ var collectionsMarkup = `
 
 `;
 
+var dishProductsMenuItem = document.getElementById("dish-products-menu-item");
+var userListsMenuItem = document.getElementById("user-lists-menu-item");
+
 function onRemove(e){
   var epi = e.target.getAttribute("data-variant-id");
   for (var i = 0; i < productsInList.length; i++) {
@@ -89,6 +92,8 @@ function closeModal(e){
 
 function renderDishProducts(event){
   if(event) event.preventDefault();
+  SwymUtils.addClass(dishProductsMenuItem, "active");
+  SwymUtils.removeClass(userListsMenuItem, "active");
   if(articleInfo){
     if(articleInfo.dishName && articleInfo.products){
       var productInList = articleInfo.products;
@@ -100,6 +105,8 @@ function renderDishProducts(event){
 
 function renderUserLists(event){
   if(event) event.preventDefault();
+  SwymUtils.removeClass(dishProductsMenuItem, "active");
+  SwymUtils.addClass(userListsMenuItem, "active");
   _swat.getAllCollections(function(collectionMap){
     var collectionNames = [];
     for(var collectionName in collectionMap){

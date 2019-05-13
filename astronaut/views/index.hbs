@@ -53,8 +53,6 @@
     swymJSShopifyLoad();
   }
 </script>
-<script type="text/javascript" src="//swymdev.azureedge.net/code/swym.js"></script>
-<script src="/javascripts/roaming.js"></script>
 
 <div class="widget-container">
   <button class="button button-outline" style="margin:0" id="create-shopping-list">Create a shopping list</button>
@@ -69,12 +67,12 @@
     </div>
     <div class="row menu">
       <div class="column">
-        <div class="menu-item">
+        <div id="user-lists-menu-item" class="menu-item active">
           <a href="#" onClick="renderUserLists(event)" class="my-lists"><p><strong>My Lists</strong></p></a>
         </div>
       </div>
       <div class="column">
-        <div class="menu-item">
+        <div id="dish-products-menu-item" class="menu-item">
           <a href="#" onClick="renderDishProducts(event)" class="all-products"><p><strong>All Items</strong></p></a>
         </div>
       </div>
@@ -103,15 +101,14 @@
   </div>
 </div>
 
-
+<script type="text/javascript" src="//swymdev.azureedge.net/code/swym.js"></script>
+<script src="/javascripts/roaming.js"></script>
 
 
 <script>
-  window.localStorage.setItem("open-modal", false);
   var createShoppingListBtn = document.getElementById("create-shopping-list");
   createShoppingListBtn.addEventListener("click", function(e){
     //window.localStorage.setItem("open-modal", true);
     document.getElementById("modal-container").style.display = "block";
   });
-
 </script>
