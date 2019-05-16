@@ -71,7 +71,7 @@ function swymCallbackFn(){
         eventMap.hashtags = [articleInfo.dishName];
         _swat.addToWishList(eventMap, function(a){
           console.log(a);
-        });
+        }, true);
       });
       btn.innerHTML = "Added";
       btn.style["pointer-events"] = "none";
