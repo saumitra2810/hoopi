@@ -3,14 +3,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
-  color: #00B7FF;
+  color: #bc546d;
+  text-decoration: none;
 }
 .container {
   padding: 0;
   .header {
     padding: 15px;
-    background: rgb(247, 247, 247);
-    border-bottom: 1px solid rgb(242, 242, 242);
+    background-color: #bc546d;
+    color: #fff;
+    // border-bottom: 1px solid rgb(242, 242, 242);
     h5 {
       margin-bottom: 0;
     }
@@ -54,7 +56,7 @@ a {
     font-size: 18px;
   }
   .row {
-    background: #fff;
+    background: #transparent;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -74,6 +76,11 @@ a {
 }
 .menu-item, #items-container {
   padding: 15px;
+  background-color: transparent;
+   .row {
+     color: #333;
+     background-color: transparent;
+   }
 }
 
 .product {
@@ -101,7 +108,7 @@ a {
 
 .body-container {
   height: 60vh;
-
+  background-color: rgba(255, 196, 193, 0.2);
   .products-row {
     height: 80%;
     overflow-y: auto;
@@ -110,8 +117,9 @@ a {
 
 button {
   color: #fff !important;
-  border: 0.1rem solid #fff !important;
-  background-color: #4d4d4d !important;
+  background-color: #bc546d !important;
+  text-transform: uppercase !important;
+  font-weight: 700;
   margin-bottom: 0 !important;
   &.button-primary {
     background-color: #4d4d4d !important;
@@ -123,10 +131,6 @@ button {
   }
 }
 
-
-a {
-  color: #333 !important;
-}
 
 .active a {
   color: #00B7FF !important;

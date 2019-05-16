@@ -3,15 +3,14 @@ var productsInList, itemsContainer;
 var productsMarkup = `
   <div class="row">
     <div class="column">
-      <p id="dish-name">{{dishName}}</p>
       {{#products}}
         <div id="{{epi}}" class="product clearfix">
           <div class="float-left">
-            <p class="title">{{dt}}</p>
-            <p class="qty">{{#cprops}} {{qtyRecipe}} {{/cprops}}</p>
+            <p class="title"><a target="_blank" href="{{du}}">{{dt}}</a> {{#cprops}} {{qtyRecipe}} {{/cprops}}</p>
+            <p class=""></p>
           </div>
           <div class="float-right">
-            <a onClick="onRemove(event)" class="remove" data-product-id="{{empi}}" data-variant-id="{{epi}}">x</a>
+            <a href="#" onClick="onRemove(event)" class="remove" data-product-id="{{empi}}" data-variant-id="{{epi}}">x</a>
           </div>
         </div>
       {{/products}}
@@ -34,8 +33,9 @@ var collectionsMarkup = `
 
 `;
 
-var dishProductsMenuItem = document.getElementById("dish-products-menu-item");
-var userListsMenuItem = document.getElementById("user-lists-menu-item");
+// var dishProductsMenuItem = document.getElementById("dish-products-menu-item");
+// var userListsMenuItem = document.getElementById("user-lists-menu-item");
+var dishName = document.getElementById("dish-name");
 
 function onRemove(e){
   var epi = e.target.getAttribute("data-variant-id");
@@ -92,10 +92,12 @@ function closeModal(e){
 
 function renderDishProducts(event){
   if(event) event.preventDefault();
-  SwymUtils.addClass(dishProductsMenuItem, "active");
-  SwymUtils.removeClass(userListsMenuItem, "active");
+  // SwymUtils.addClass(dishProductsMenuItem, "active");
+  // SwymUtils.removeClass(userListsMenuItem, "active");
   if(articleInfo){
+
     if(articleInfo.dishName && articleInfo.products){
+      dishName.innerHTML = articleInfo.dishName;
       var productInList = articleInfo.products;
       var markup = SwymUtils.renderTemplateString(productsMarkup, {dishName: articleInfo.dishName, products: articleInfo.products});
       itemsContainer.innerHTML = markup;
@@ -105,8 +107,8 @@ function renderDishProducts(event){
 
 function renderUserLists(event){
   if(event) event.preventDefault();
-  SwymUtils.removeClass(dishProductsMenuItem, "active");
-  SwymUtils.addClass(userListsMenuItem, "active");
+  // SwymUtils.removeClass(dishProductsMenuItem, "active");
+  // SwymUtils.addClass(userListsMenuItem, "active");
   _swat.getAllCollections(function(collectionMap){
     var collectionNames = [];
     for(var collectionName in collectionMap){
