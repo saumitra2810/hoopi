@@ -62,20 +62,25 @@ function swymCallbackFn(){
 
   renderDishProducts();
 
-  addToListBtn.addEventListener("click", function(e){
-    var btn = e.target;
-    btn.innerHTML = "Adding to list..";
-    productsInList.forEach(function(p){
-      var eventMap = JSON.parse(JSON.stringify(p));
-      eventMap.hashtags = [articleInfo.dishName];
-      _swat.addToWishList(eventMap, function(a){
-        console.log(a);
+  _swat.refresh(function(a){
+    addToListBtn.addEventListener("click", function(e){
+      var btn = e.target;
+      btn.innerHTML = "Adding to list..";
+      productsInList.forEach(function(p){
+        var eventMap = JSON.parse(JSON.stringify(p));
+        eventMap.hashtags = [articleInfo.dishName];
+        _swat.addToWishList(eventMap, function(a){
+          console.log(a);
+        });
       });
+      btn.innerHTML = "Added";
+      btn.style["pointer-events"] = "none";
+      btn.style.opacity = 0.7;
     });
-    btn.innerHTML = "Added";
-    btn.style["pointer-events"] = "none";
-    btn.style.opacity = 0.7;
+  }, function(e){
+    console.log(e);
   });
+
 
   shopBtn.addEventListener("click", function(e){
     window.open(homeDomain, '_blank');
