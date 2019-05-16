@@ -40,5 +40,65 @@
         "cprops": {"qtyCart": 1, "qtyRecipe": "1 tablespoon"}
       }
     ]
+  },
+  "homemade-pancakes": {
+    "homeDomain": "https://narendra-prod.myshopify.com/",
+    "dishName" : "Homemade Pancakes",
+    "products": [
+      {
+        "dt": "All-purpose flour",
+        "du": "https://narendra-prod.myshopify.com/products/all-purpose-flour",
+        "empi": 2072255266886,
+        "epi": 20751419277382,
+        "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/71yzA8aPQcL._SY450.jpg?v=1557999132",
+        "pr": 230,
+        "cprops": {"qtyCart": 1, "qtyRecipe": "1.5 cups"}
+      },
+      {
+        "dt": "Baking powder",
+        "du": "https://narendra-prod.myshopify.com/products/baking-powder",
+        "empi": 2072256741446,
+        "epi": 20751421866054,
+        "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/81AkqXU7Q5L._SL1500.jpg?v=1557999304",
+        "pr": 23,
+        "cprops": {"qtyCart": 1, "qtyRecipe": "2 teaspoons"}
+      },
+      {
+        "dt": "Baking soda",
+        "du": "https://narendra-prod.myshopify.com/products/baking-soda",
+        "empi": 2072256905286,
+        "epi": 20751422914630,
+        "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/GUEST_039479ec-55e6-43e5-a9f7-765f6f12d4ff.jpeg?v=1557999379",
+        "pr": 34,
+        "cprops": {"qtyCart": 1, "qtyRecipe": "1 teaspoon"}
+      },
+      {
+        "dt": "Butter",
+        "du": "https://narendra-prod.myshopify.com/products/butter",
+        "empi": 2072258117702,
+        "epi": 20751434776646,
+        "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/51vVwocc7eL.jpg?v=1557999490",
+        "pr": 10,
+        "cprops": {"qtyCart": 1, "qtyRecipe": "1/4 cup"}
+      },
+      {
+        "dt": "Eggs",
+        "du": "https://narendra-prod.myshopify.com/products/eggs",
+        "empi": 2072257626182,
+        "epi": 20751427928134,
+        "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/Eierdoosmet10eierengevuld2010.jpg?v=1557999444",
+        "pr": 12,
+        "cprops": {"qtyCart": 1, "qtyRecipe": "2"}
+      },
+      {
+        "dt": "Sugar",
+        "du": "https://narendra-prod.myshopify.com/products/sugar",
+        "empi": 2072255987782,
+        "epi": 20751420424262,
+        "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/download_2.jpeg?v=1557999234",
+        "pr": 10,
+        "cprops": {"qtyCart": 1, "qtyRecipe": "2 tablespoons"}
+      }
+    ]
   }
 }
