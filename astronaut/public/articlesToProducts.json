@@ -42,12 +42,12 @@
     ]
   },
   "homemade-pancakes": {
-    "homeDomain": "https://narendra-prod.myshopify.com/",
+    "homeDomain": "https://sams-grocery-store.myshopify.com/",
     "dishName" : "Homemade Pancakes",
     "products": [
       {
         "dt": "All-purpose flour",
-        "du": "https://narendra-prod.myshopify.com/products/all-purpose-flour",
+        "du": "https://sams-grocery-store.myshopify.com/products/all-purpose-flour",
         "empi": 2072255266886,
         "epi": 20751419277382,
         "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/71yzA8aPQcL._SY450.jpg?v=1557999132",
@@ -56,7 +56,7 @@
       },
       {
         "dt": "Baking powder",
-        "du": "https://narendra-prod.myshopify.com/products/baking-powder",
+        "du": "https://sams-grocery-store.myshopify.com/products/baking-powder",
         "empi": 2072256741446,
         "epi": 20751421866054,
         "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/81AkqXU7Q5L._SL1500.jpg?v=1557999304",
@@ -65,7 +65,7 @@
       },
       {
         "dt": "Baking soda",
-        "du": "https://narendra-prod.myshopify.com/products/baking-soda",
+        "du": "https://sams-grocery-store.myshopify.com/products/baking-soda",
         "empi": 2072256905286,
         "epi": 20751422914630,
         "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/GUEST_039479ec-55e6-43e5-a9f7-765f6f12d4ff.jpeg?v=1557999379",
@@ -74,7 +74,7 @@
       },
       {
         "dt": "Butter",
-        "du": "https://narendra-prod.myshopify.com/products/butter",
+        "du": "https://sams-grocery-store.myshopify.com/products/butter",
         "empi": 2072258117702,
         "epi": 20751434776646,
         "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/51vVwocc7eL.jpg?v=1557999490",
@@ -83,7 +83,7 @@
       },
       {
         "dt": "Eggs",
-        "du": "https://narendra-prod.myshopify.com/products/eggs",
+        "du": "https://sams-grocery-store.myshopify.com/products/eggs",
         "empi": 2072257626182,
         "epi": 20751427928134,
         "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/Eierdoosmet10eierengevuld2010.jpg?v=1557999444",
@@ -92,12 +92,42 @@
       },
       {
         "dt": "Sugar",
-        "du": "https://narendra-prod.myshopify.com/products/sugar",
+        "du": "https://sams-grocery-store.myshopify.com/products/sugar",
         "empi": 2072255987782,
         "epi": 20751420424262,
         "iu": "//cdn.shopify.com/s/files/1/0054/8421/6390/products/download_2.jpeg?v=1557999234",
         "pr": 10,
         "cprops": {"qtyCart": 1, "qtyRecipe": "2 tablespoons"}
+      }
+    ]
+  },
+  "noodles": {
+    "homeDomain": "https://sams-grocery-store.myshopify.com/",
+    "dishName": "Super-simple Noodles",
+    "products": [
+      {
+        "dt": "Maggi noodles",
+        "du": "https://sams-grocery-store.myshopify.com/products/maggi-noodles",
+        "empi": 3674630094923,
+        "epi": 28588087312459,
+        "iu": "//cdn.shopify.com/s/files/1/0226/5733/5371/products/download_3.jpeg?v=1558338571",
+        "pr": 1
+      },
+      {
+        "dt": "Garlic",
+        "du": "https://sams-grocery-store.myshopify.com/products/garlic",
+        "empi": 3674631045195,
+        "epi": 28588097634379,
+        "iu": "//cdn.shopify.com/s/files/1/0226/5733/5371/products/download_4.jpeg?v=1558338699",
+        "pr": 3
+      },
+      {
+        "dt": "Onion",
+        "du": "https://sams-grocery-store.myshopify.com/products/onion",
+        "empi": 3674630488139,
+        "epi": 28588092424267,
+        "iu": "//cdn.shopify.com/s/files/1/0226/5733/5371/products/images.jpeg?v=1558338628",
+        "pr": 2
       }
     ]
   }
