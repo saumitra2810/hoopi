@@ -66,7 +66,7 @@ function buildOembedResponse(url, maxWidth, maxHeight){
     "html": "<iframe width=\"" + maxWidth + "\" height=\"" + maxHeight + "\" src=\"" + url + "\" scrolling=\"yes\" frameborder=\"0\" ><\/iframe>",
     "width": maxWidth,
     "height": maxHeight,
-    "author_name":"Arvind Krishnan",
+    "author_name":"Swym Corporation",
     "provider_name":"Swym.it",
     "provider_url":"https:\/\/swym.it\/",
     "title":"Welcome!"
